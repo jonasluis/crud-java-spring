@@ -19,13 +19,13 @@ public class ProductController {
     private ProductRepository repository;
 
     @GetMapping()
-    public ResponseEntity getAllProducts(){
-        var allProducts = repository.findAll();
+    public ResponseEntity getAllProducts() {
+        var allProducts = repository.findAllByActiveTrue();
         return ResponseEntity.ok(allProducts);
     }
 
     @PostMapping()
-    public  ResponseEntity registerProduct(@RequestBody @Valid RequestProduct data){
+    public ResponseEntity registerProduct(@RequestBody @Valid RequestProduct data) {
         Product newProduct = new Product(data);
         repository.save(newProduct);
         return ResponseEntity.ok().build();
@@ -33,7 +33,7 @@ public class ProductController {
 
     @PutMapping()
     @Transactional
-    public ResponseEntity updateProduct( @RequestBody @Valid RequestProduct data){
+    public ResponseEntity updateProduct(@RequestBody @Valid RequestProduct data) {
         Optional<Product> optionalProduct = repository.findById(data.id());
         if (optionalProduct.isPresent()) {
             Product product = optionalProduct.get();
@@ -45,4 +45,16 @@ public class ProductController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteProduct(@PathVariable String id) {
+        Optional<Product> optionalProduct = repository.findById(id);
+        if (optionalProduct.isPresent()) {
+            Product product = optionalProduct.get();
+            product.setActive(false);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
