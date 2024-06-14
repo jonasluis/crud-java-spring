@@ -1,7 +1,7 @@
 # Simple CRUD
 This repository contains a simple CRUD project built using Java Spring. The aim of this repository is to practice and share how you can build all CRUD Methods using Java Spring.
 
-This project was build during a [live in my Youtube Channel](https://www.youtube.com/watch?v=tP6wtEaCnSI).
+This project was build during a [live in Youtube Channel](https://www.youtube.com/watch?v=tP6wtEaCnSI).
 
 ## Table of Contents
 
@@ -42,4 +42,4 @@ DELETE / - Delete data.
 ## Database
 The project utilizes PostgresSQL as the database. The necessary database migrations are managed using Flyway.
 
-To [install PostgresSQL])(https://www.postgresql.org/download/) you can install here.
+To [install PostgresSQL](https://www.postgresql.org/download/) you can install here.
