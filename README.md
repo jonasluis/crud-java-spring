@@ -30,16 +30,16 @@ git clone https://github.com/Fernanda-Kipper/live-crud-java-spring.git
 The API provides the following endpoints:
 
 ```markdown
-GET / - Retrieve a list of all data.
+GET /product - Retrieve a list of all data.
 
-POST / - Register a new data.
+POST /product - Register a new data.
 
-PUT / - Alter data.
+PUT /product - Alter data.
 
-DELETE / - Delete data.
+DELETE /product/{id} - Inactivate data.
 ```
 
 ## Database
-The project utilizes PostgresSQL as the database. The necessary database migrations are managed using Flyway.
+The project uses PostgresSQL as the database. The necessary database migrations are managed using Flyway.
 
-To [install PostgresSQL](https://www.postgresql.org/download/) you can install here.
+To install PostgresSQL locally you can [click here](https://www.postgresql.org/download/).
